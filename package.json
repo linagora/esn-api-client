@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src webpack.*.js",
     "build:dev": "webpack",
     "build:prod": "webpack --env=prod"
   },
@@ -22,6 +23,9 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
     "path": "^0.12.7",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.44.1",

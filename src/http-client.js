@@ -10,7 +10,9 @@ module.exports = function({ baseURL, auth } = {}) {
   return httpClient;
 };
 
-function buildAuthHeader({ type, token, username, password } = {}) {
+function buildAuthHeader({
+ type, token, username, password
+} = {}) {
   if (type === 'jwt') {
     return `Bearer ${token}`;
   }
