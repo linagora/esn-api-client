@@ -1,4 +1,5 @@
 const httpClient = require('./http-client');
+const applicationDiscoveryService = require('./api/application-discovery-service');
 
 class Client {
   constructor({ baseURL } = {}) {
@@ -7,6 +8,8 @@ class Client {
     }
 
     this.httpClient = httpClient({ baseURL });
+
+    applicationDiscoveryService(this);
   }
 
   api(config) {
