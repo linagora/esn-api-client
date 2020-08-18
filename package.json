@@ -1,0 +1,48 @@
+{
+  "name": "esn-api-client",
+  "version": "0.0.1",
+  "description": "JS library for OpenPaaS ESN APIs",
+  "main": "dist/esn-api-client.js",
+  "scripts": {
+    "test": "npm run lint && npm run unit-test",
+    "lint": "eslint src webpack.*.js",
+    "build:dev": "webpack",
+    "build:prod": "webpack --env=prod",
+    "unit-test": "mocha -r esm --recursive --file ./test/setup.js"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "esn",
+    "api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenPaaS-Suite/esn-api-client"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "axios-mock-adapter": "^1.18.2",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "esm": "^3.2.25",
+    "mocha": "^8.1.1",
+    "path": "^0.12.7",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.1"
+  },
+  "dependencies": {
+    "axios": "0.19.2"
+  }
+}
