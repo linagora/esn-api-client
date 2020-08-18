@@ -1,7 +1,7 @@
 const BASE_PATH = '/ads';
 
-export default function mixin(client) {
-  client.ads = {
+export default function(client) {
+  return {
     listServices,
     listServicesForCurrentUserByType,
     listServicesForSpecificUserByType,

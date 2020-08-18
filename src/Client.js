@@ -1,15 +1,18 @@
 import httpClient from './http-client';
-import applicationDiscoveryService from './api/application-discovery-service';
 
 export default class Client {
+  /**
+   * @constructor
+   * @param {Object} options An options object contains:
+   * @param {String} options.baseURL Base URL of your ESN server
+   * @param {String} options.auth    Auth stretagy
+   */
   constructor({ baseURL } = {}) {
     if (!baseURL) {
       throw new Error('baseURL is required');
     }
 
     this.httpClient = httpClient({ baseURL });
-
-    applicationDiscoveryService(this);
   }
 
   api(config) {

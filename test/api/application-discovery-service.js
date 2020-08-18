@@ -1,12 +1,19 @@
-const { expect } = require('chai');
+import { expect } from 'chai';
+import { applicationDiscoveryServiceApi } from '../../src';
 
 describe('The application discovery service APIs', () => {
+  let adsApi;
+
+  beforeEach(function() {
+    adsApi = applicationDiscoveryServiceApi(this.client);
+  });
+
   describe('The listServices function', () => {
     it('should send a GET request to list of registered services', function(done) {
       const services = [{ id: 'service1' }];
 
       this.mock.onGet('/ads').reply(200, services);
-      this.client.ads.listServices()
+      adsApi.listServices()
         .then((response) => {
           expect(response).to.deep.equal(services);
           done();
@@ -21,7 +28,7 @@ describe('The application discovery service APIs', () => {
       const type = 'type';
 
       this.mock.onGet('/user/ads', { params: { type } }).reply(200, services);
-      this.client.ads.listServicesForCurrentUserByType(type)
+      adsApi.listServicesForCurrentUserByType(type)
         .then((response) => {
           expect(response).to.deep.equal(services);
           done();
@@ -37,7 +44,7 @@ describe('The application discovery service APIs', () => {
       const userId = '123';
 
       this.mock.onGet(`/user/${userId}/ads`, { params: { type } }).reply(200, services);
-      this.client.ads.listServicesForSpecificUserByType(userId, type)
+      adsApi.listServicesForSpecificUserByType(userId, type)
         .then((response) => {
           expect(response).to.deep.equal(services);
           done();
@@ -51,7 +58,7 @@ describe('The application discovery service APIs', () => {
       const service = { id: 'service1' };
 
       this.mock.onPut('/ads').reply(204);
-      this.client.ads.registerService(service)
+      adsApi.registerService(service)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
     });
@@ -62,7 +69,7 @@ describe('The application discovery service APIs', () => {
       const toggle = { id: 'service1', enabled: true };
 
       this.mock.onPut('/ads/platform', toggle).reply(204);
-      this.client.ads.toggleServiceForPlatform(toggle)
+      adsApi.toggleServiceForPlatform(toggle)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
     });
@@ -74,7 +81,7 @@ describe('The application discovery service APIs', () => {
       const toggle = { id: 'service1', enabled: true };
 
       this.mock.onPut(`/ads/domains/${domainId}`, toggle).reply(204);
-      this.client.ads.toggleServiceForDomain(domainId, toggle)
+      adsApi.toggleServiceForDomain(domainId, toggle)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
     });
@@ -86,7 +93,7 @@ describe('The application discovery service APIs', () => {
       const toggle = { id: 'service1', enabled: true };
 
       this.mock.onPut(`/ads/users/${userId}`, toggle).reply(204);
-      this.client.ads.toggleServiceForUser(userId, toggle)
+      adsApi.toggleServiceForUser(userId, toggle)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
     });
@@ -98,7 +105,7 @@ describe('The application discovery service APIs', () => {
       const serviceToUpdate = { id: 'serviceId' };
 
       this.mock.onPut(`/ads/${serviceId}`, serviceToUpdate).reply(204);
-      this.client.ads.updateServiceById(serviceId, serviceToUpdate)
+      adsApi.updateServiceById(serviceId, serviceToUpdate)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
     });
@@ -109,7 +116,7 @@ describe('The application discovery service APIs', () => {
       const serviceId = '123';
 
       this.mock.onDelete(`/ads/${serviceId}`).reply(204);
-      this.client.ads.unregisterServiceById(serviceId)
+      adsApi.unregisterServiceById(serviceId)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
     });

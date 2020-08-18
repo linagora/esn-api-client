@@ -12,7 +12,10 @@ NPM and Yarn:
 ## Usage
 
 ```javascript
-const { Client } = require('esn-api-client');
+const {
+  Client,
+  applicationDiscoveryServiceApi
+} = require('esn-api-client');
 
 const client = new Client({
   baseURL: 'https://open-paas.org/api',
@@ -26,10 +29,15 @@ const client = new Client({
   }
 });
 
-client.ads.listServices()
+adsApi = applicationDiscoveryServiceApi(client);
+
+adsApi.listServices()
   .then(data => console.log(data))
   .catch(err => console.error(err));
 ```
+
+Available APIs are:
+  - `applicationDiscoveryServiceApi`: API to manage application discovery services
 
 ## Developing
 - `npm run test` run lint & unit tests
