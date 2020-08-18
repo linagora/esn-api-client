@@ -1,7 +1,7 @@
-const axios = require('axios');
-const MockAdapter = require('axios-mock-adapter');
-const chai = require('chai');
-const { Client } = require('../src');
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import chai from 'chai';
+import { Client } from '../src';
 
 chai.use(require('chai-as-promised'));
 

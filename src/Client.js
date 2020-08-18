@@ -1,7 +1,7 @@
-const httpClient = require('./http-client');
-const applicationDiscoveryService = require('./api/application-discovery-service');
+import httpClient from './http-client';
+import applicationDiscoveryService from './api/application-discovery-service';
 
-class Client {
+export default class Client {
   constructor({ baseURL } = {}) {
     if (!baseURL) {
       throw new Error('baseURL is required');
@@ -16,5 +16,3 @@ class Client {
     return this.httpClient(config).then(({ data }) => data);
   }
 }
-
-module.exports = Client;

@@ -1,14 +1,14 @@
-const axios = require('axios');
+import { create } from 'axios';
 
-module.exports = function({ baseURL, auth } = {}) {
-  const httpClient = axios.create({ baseURL });
+export default function({ baseURL, auth } = {}) {
+  const httpClient = create({ baseURL });
 
   if (auth) {
     httpClient.defaults.headers.common.authorization = buildAuthHeader(auth);
   }
 
   return httpClient;
-};
+}
 
 function buildAuthHeader({
  type, token, username, password

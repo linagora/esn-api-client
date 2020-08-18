@@ -6,6 +6,7 @@
     "comma-dangle": [2, "never"],
     "import/no-extraneous-dependencies": 0,
     "import/no-dynamic-require": 0,
+    "import/prefer-default-export": 0,
     "func-names": 0,
     "global-require": 0,
     "no-use-before-define": 0,
