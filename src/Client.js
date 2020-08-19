@@ -7,12 +7,12 @@ export default class Client {
    * @param {String} options.baseURL Base URL of your ESN server
    * @param {String} options.auth    Auth stretagy
    */
-  constructor({ baseURL } = {}) {
+  constructor({ baseURL, auth } = {}) {
     if (!baseURL) {
       throw new Error('baseURL is required');
     }
 
-    this.httpClient = httpClient({ baseURL });
+    this.httpClient = httpClient({ baseURL, auth });
   }
 
   api(config) {
