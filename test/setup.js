@@ -1,22 +1,23 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import chai from 'chai';
 import { Client } from '../src';
 
-chai.use(require('chai-as-promised'));
+const setup = {};
 
-before(function() {
-  this.mock = new MockAdapter(axios);
+beforeAll(() => {
+  setup.mockAdapter = new MockAdapter(axios);
 });
 
-beforeEach(function() {
-  this.mock.reset();
-  this.client = new Client({
+beforeEach(() => {
+  setup.mockAdapter.reset();
+  setup.client = new Client({
     token: 'token',
     baseURL: 'http://base-url'
   });
 });
 
-after(function() {
-  this.mock.restore();
+afterAll(() => {
+  setup.mockAdapter.restore();
 });
+
+export { setup };
