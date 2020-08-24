@@ -1,5 +1,5 @@
 import Client from './Client';
-import applicationDiscoveryServiceApi from './api/application-discovery-service';
+import applicationDiscoveryServiceApi from './api/core/application-discovery-service';
 
 export {
   Client,
