@@ -1,5 +1,5 @@
-import { applicationDiscoveryServiceApi } from '../../src';
-import { setup } from '../setup';
+import { applicationDiscoveryServiceApi } from '../../../src';
+import { setup } from '../../setup';
 
 describe('The application discovery service APIs', () => {
   let adsApi;

@@ -16,6 +16,9 @@ export default class Client {
   }
 
   api(config) {
-    return this.httpClient(config).then(({ data }) => data);
+    return this.httpClient({
+      withCredentials: true,
+      ...config
+    }).then(({ data }) => data);
   }
 }
