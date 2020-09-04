@@ -4,11 +4,10 @@
   "description": "JS library for OpenPaaS ESN APIs",
   "main": "dist/esn-api-client.js",
   "scripts": {
-    "test": "npm run lint && npm run unit-test",
-    "lint": "eslint src webpack.*.js",
+    "test": "jest",
+    "lint": "eslint src test webpack.*.js",
     "build:dev": "webpack",
-    "build:prod": "webpack --env=prod",
-    "unit-test": "jest"
+    "build:prod": "webpack --env=prod"
   },
   "files": [
     "src",
