@@ -2,7 +2,7 @@
   "name": "esn-api-client",
   "version": "0.0.1",
   "description": "JS library for OpenPaaS ESN APIs",
-  "main": "dist/esn-api-client.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint src test webpack.*.js",
