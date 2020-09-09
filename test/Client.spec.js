@@ -56,5 +56,19 @@ describe('The Client class', () => {
         })
         .catch((err) => done(err || new Error('should resolve')));
     });
+
+    test('should send request and return the body data from the response', (done) => {
+      const client = new Client({ baseURL: 'http://esn/api' });
+      const response = { data: { foo: 'bar' } };
+
+      client.httpClient = jest.fn().mockResolvedValue(Promise.resolve(response));
+      client.api()
+        .then((bodyData) => {
+          expect(client.httpClient).toHaveBeenCalledWith({ withCredentials: true });
+          expect(bodyData).toEqual(response.data);
+          done();
+        })
+        .catch((err) => done(err || new Error('should resolve')));
+    });
   });
 });
