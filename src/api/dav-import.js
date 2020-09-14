@@ -1,4 +1,4 @@
-const BASE_PATH = '/import';
+const BASE_PATH = '/linagora.esn.dav.import/api/import';
 
 export default function(client) {
   return {
