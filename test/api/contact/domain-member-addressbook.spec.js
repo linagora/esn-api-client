@@ -10,7 +10,7 @@ describe('The dav import APIs', () => {
 
   describe('The synchronize function', () => {
     it('should send POST request to the right endpoint to synchornize domain members addressbook', function(done) {
-      const url = '/addressbooks/domainmembers/synchronize';
+      const url = '/contact/api/addressbooks/domainmembers/synchronize';
 
       setup.mockAdapter.onPost(url).reply(201);
 
@@ -28,7 +28,7 @@ describe('The dav import APIs', () => {
 
   describe('The synchronizeForDomain function', () => {
     it('should send POST request to the right endpoint to synchornize domain members addressbook', function(done) {
-      const url = '/addressbooks/domainmembers/synchronize';
+      const url = '/contact/api/addressbooks/domainmembers/synchronize';
       const domainId = '1234';
 
       setup.mockAdapter.onPost(new RegExp(`${url}*`)).reply(201);
