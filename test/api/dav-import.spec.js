@@ -13,7 +13,7 @@ describe('The dav import APIs', () => {
       const file = { foo: 'bar' };
       const target = '/address/book/path';
 
-      setup.mockAdapter.onPost('/import').reply(202);
+      setup.mockAdapter.onPost('/linagora.esn.dav.import/api/import').reply(202);
       api.importFromFile(file, target)
         .then(() => done())
         .catch((err) => done(err || new Error('should resolve')));
