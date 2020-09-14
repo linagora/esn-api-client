@@ -1,4 +1,4 @@
-const BASE_PATH = '/addressbooks/domainmembers/synchronize';
+const BASE_PATH = '/contact/api/addressbooks/domainmembers/synchronize';
 
 export default function(client) {
   return {
