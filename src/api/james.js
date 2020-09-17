@@ -242,7 +242,7 @@ export default function(client) {
     return client.api({
       url: `${BASE_PATH}/dlp/domains/${domainId}/rules`,
       method: 'put',
-      data: { ...rules }
+      data: rules
     });
   }
 
