@@ -346,10 +346,11 @@ describe('The James APIs', function() {
 
       api.storeDlpRules(domainId, rules)
         .then(() => {
-          const getRequestHistory = setup.mockAdapter.history.put[0];
+          const putRequestHistory = setup.mockAdapter.history.put[0];
 
-          expect(getRequestHistory.url).toBe(url);
-          expect(getRequestHistory.method).toBe('put');
+          expect(putRequestHistory.url).toBe(url);
+          expect(putRequestHistory.method).toBe('put');
+          expect(JSON.parse(putRequestHistory.data)).toEqual(rules);
           done();
         })
         .catch((err) => done(err || new Error('should resolve')));
